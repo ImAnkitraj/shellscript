@@ -1,0 +1,77 @@
+# Bash shell script to find if a number is perfect or not
+
+1. Write a bash script to find if a number is perfect or not. A perfect number is defined as, a positive number that is equal to the sum of its proper divisors. Smallest no is 6 ex= 1,2,3 are divisor of 6 and 1+2+3=6
+
+---------------
+Code:
+---------------
+# !/bin/bash
+
+echo "Enter a number"
+
+# reading input from user 
+read no  
+
+# initializing the value of i
+i=1
+
+ans=0
+
+while [ $i -le $((no / 2)) ]   
+
+do
+       
+        if [[ $((no%i)) -eq 0  ]] 
+        then
+
+                ans=$((ans + i))
+
+fi
+
+i = $((i + 1))
+
+done
+
+if [ $no -eq $ans ]  
+then
+        # printing output
+        echo "$no is perfect" 
+        else
+        
+        # printing output
+        echo "$no is NOT perfect" 
+fi
+
+----------------
+Output:
+----------------
+Enter a number
+6
+6 is perfect
+
+
+
+2. Shell Script to Count Lines and Words in a File
+
+Linux provides users a great cool feature of the command-line tool along with a graphical user interface where they can perform tasks via ruining command. All of this command returns a status according to their execution. Its execution value can be used for showing errors or take some other action in a shell script. 
+
+There may be some scenarios where one needs to keep track of the number of lines and number of words in a particular file. In that scenario, any of the following methods can be used to count the number of the lines and the words in a particular file in Linux. 
+
+-------------------------
+Code:
+-------------------------
+
+#!/usr/bin/bash
+
+# path to the file
+file_path="/home/amninder/Desktop/demo.txt"
+
+# using wc command to count number of lines
+number_of_lines=`wc --lines < $file_path`
+
+# using wc command to count number of words
+number_of_words=`wc --word < $file_path`
+
+# Displaying number of lines and number of words
+echo "Number of lines: $number_of_lines"
+echo "Number of words: $number_of_words"
